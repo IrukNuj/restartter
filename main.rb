@@ -39,6 +39,7 @@ result['statuses'].each do |users|
   status = JSON.parse(`twurl -d 'screen_name=#{users['user']['screen_name']}' /1.1/friendships/create.json`)
 
   # pp status
+  puts status.has_key?('errors') ? 'フォローに失敗しました...' : 'フォローしました！'
 end
 
 
